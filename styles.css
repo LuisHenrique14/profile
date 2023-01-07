@@ -1,0 +1,132 @@
+* { box-sizing: border-box;}
+
+button {
+    border: 0;
+    padding: 0;
+    background: gray;
+    cursor: pointer;
+}
+
+.navbar,
+.burger,
+.menu,
+.background{
+    position: 1;
+}
+
+.background {
+    z-index: 1;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background-image: url("");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: 0.5s;
+}
+
+.navbar-burger {
+    z-index: 3;
+    top: 0;
+    right: 0;
+    display: grid;
+    place-items: center;
+    width: 10px;
+    height: 5px;
+    background: url("menu2.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    /* border: 0;
+    height: 30px;
+    background: #2f3339 url("menu.png");
+    background-repeat: no-repeat;
+    background-position: 10px 50%;
+    border: 0;
+    border-radius: 6px;
+    padding-left: 15px;
+    width: 50px;
+    font-size: 16px; */
+
+}
+
+.navbar {
+    z-index: 1;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 72px;
+    padding-left: 20px;
+    padding-right: 72px;
+    background: #19191c;
+    color: #f9f9f9;
+}
+
+.navbar > button { font-size: 28px;}
+
+.navbar-logo {height: 20px;}
+
+.navbar-search {
+    border: 0;
+    height: 40px;
+    background: #2f3339 url("search.png");
+    background-repeat: no-repeat;
+    background-position: 10px 50%;
+    border: 0;
+    border-radius: 6px;
+    padding-left: 36px;
+    width: 180px;
+    font-size: 16px;
+}
+
+.navbar-search::placeholder {
+    color: #a7a7a7;
+}
+
+.menu {
+    z-index: 2;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: -20px;
+    width: 100%;
+    height: 100%;
+    background: rgb(20, 20, 20);
+    opacity: 0;
+    visibility: hidden;
+    transition: 1s;
+}
+
+.menu > a {
+    color: #f9f9f9;
+    font-size: 32px;
+}
+
+body.open .background {
+    filter: blur(20px);
+}
+
+body.open .burger {
+    background-image: url("eu.jpeg");
+    }
+
+body.open .menu {
+    opacity: 1;
+    visibility: visible;
+}
+
+@keyframes appear {
+    0% { opacity: 0; translate: 0 50px;}
+    100% { opacity: 1;}
+}
+
+body.open .menu > a {
+    animation: appear 1s both;
+}
